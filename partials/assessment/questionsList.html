@@ -1,1 +1,11 @@
 <h1>[Questions Display Here]</h1>
+
+<div ng-repeat="question in vm.questions">
+  <h3>{{question.qText}}</h3>
+  <div ng-repeat="option in question.qOptions">
+    <div ng-repeat="(letter, choice) in option">
+      <p>{{letter}}: {{choice}}</p>
+    </div>
+  </div>
+  <p>The correct answer is: {{question.qAnswer}}</p>
+</div>

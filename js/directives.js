@@ -11,8 +11,7 @@
         templateUrl: '../partials/assessment/layout.html'
       }
     })
-
-})()
+})();
 
 
 //***************************************************************************
@@ -26,7 +25,7 @@
         scope: {
           vm: '=vmAttr'
         },
-        templateUrl: '../partials/shopping/questionsList.html'
+        templateUrl: '../partials/assessment/questionsList.html'
       }
     })
-})()
+})();
