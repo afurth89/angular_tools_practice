@@ -1,5 +1,5 @@
 //***************************************************************************
-//ASSESSMENT - PARENT
+//CREATE ASSESSMENT - PARENT
 //***************************************************************************
 (function() {
   
@@ -20,4 +20,24 @@
         console.log($scope.modelAsJson)
     }, true);
     }
-})()
+})();
+
+//***************************************************************************
+//TAKE ASSESSMENT - PARENT
+//***************************************************************************
+(function() {
+  
+  angular
+    .module('angularPracticeApp')
+    .controller('TakeAssessmentParentController', TakeAssessmentParentController)
+
+    TakeAssessmentParentController.$inject = ['QuestionBankService', '$scope']
+
+    function TakeAssessmentParentController(QuestionBankService, $scope) {
+      let vm = this;
+
+      vm.questions = QuestionBankService.getQuestions();
+      vm.answers = QuestionBankService.populateAnswers();
+      debugger
+    }
+})();

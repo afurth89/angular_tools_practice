@@ -1,5 +1,5 @@
 //***************************************************************************
-//ASSESSMENT - PARENT
+//CREATE Assessment - PARENT
 //***************************************************************************
 (function() {
   angular
@@ -15,7 +15,7 @@
 
 
 //***************************************************************************
-//ASSESSMENT - QUESTION LIST SIMPLE
+//CREATE Assessment - QUESTION LIST SIMPLE
 //***************************************************************************
 (function() {
   angular
@@ -26,6 +26,37 @@
           vm: '=vmAttr'
         },
         templateUrl: '../partials/createAssessment/questionsListSimple.html'
+      }
+    })
+})();
+
+//***************************************************************************
+//TAKE Assessment - PARENT
+//***************************************************************************
+(function() {
+  angular
+    .module('angularPracticeApp')
+    .directive('takeAssessmentParent', function() {
+      return {
+        controller: "TakeAssessmentParentController",
+        controllerAs: 'vm',
+        templateUrl: '../partials/takeAssessment/layout.html'
+      }
+    })
+})();
+
+//***************************************************************************
+//TAKE Assessment - QUESTIONS LIST
+//***************************************************************************
+(function() {
+  angular
+    .module('angularPracticeApp')
+    .directive('assessmentQuestionsList', function() {
+      return {
+        scope: {
+          vm: '=vmAttr'
+        },
+        templateUrl: '../partials/takeAssessment/assessmentQuestionsList.html'
       }
     })
 })();

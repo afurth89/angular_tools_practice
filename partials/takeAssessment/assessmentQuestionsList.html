@@ -1,0 +1,10 @@
+<h1>[List of Assessment Questions]</h1>
+
+<div ng-repeat="question in vm.questions">
+  <h4>Question: <span>{{question.qText}}</span></h4>
+  <ul>
+    <li ng-repeat="answerChoice in question.qOptions">
+      {{answerChoice}}
+    </li>
+  </ul>
+</div>

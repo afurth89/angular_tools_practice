@@ -58,6 +58,14 @@ app.service("QuestionBankService", function() {
   return {
     getQuestions: function() {
       return questions;
+    },
+    populateAnswers: function() {
+      var answersArray = questions.map(function(q) {
+        var qObj = {}
+        qObj[q.id] = q.qAnswer
+        return qObj
+      })
+      return answersArray;
     }
   }
 })
