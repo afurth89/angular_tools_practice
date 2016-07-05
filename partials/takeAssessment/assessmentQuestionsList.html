@@ -1,10 +1,13 @@
 <h1>[List of Assessment Questions]</h1>
 
+{{vm.answers}}
+
 <div ng-repeat="question in vm.questions">
   <h4>Question: <span>{{question.qText}}</span></h4>
   <ul>
-    <li ng-repeat="answerChoice in question.qOptions">
-      {{answerChoice}}
+    <li ng-repeat="choice in question.qOptions"
+        >
+      <span ng-click="vm.selectAnswer(question.id, choice)">{{choice}}</span>
     </li>
   </ul>
 </div>

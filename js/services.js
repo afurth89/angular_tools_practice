@@ -53,20 +53,31 @@ app.service("QuestionBankService", function() {
       ],
       'qAnswer': 'd'
     }
+  ];
 
-  ]
+  const answersArray = questions.map(function(q) {
+    var qObj = {}
+    qObj.id = q.id;
+    qObj.actualAnswer = q.qAnswer;
+    qObj.userAnswer = null;
+    qObj.correct = false;
+    return qObj
+  })
+
+
   return {
     getQuestions: function() {
       return questions;
     },
-    populateAnswers: function() {
-      var answersArray = questions.map(function(q) {
-        var qObj = {}
-        qObj[q.id] = q.qAnswer
-        return qObj
-      })
+    populateAnswersArray: function() {
       return answersArray;
-    }
+    },
+    updateAnswersArray: function(id, choice) {
+      var qIdx = answersArray.findIndex(q => id === q.id)
+      console.log("The index of the clicked question is: ", qIdx)
+      answersArray[qIdx].userAnswer = choice;
+      return answersArray
+    },
   }
 })
 

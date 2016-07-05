@@ -37,7 +37,10 @@
       let vm = this;
 
       vm.questions = QuestionBankService.getQuestions();
-      vm.answers = QuestionBankService.populateAnswers();
-      debugger
+      vm.answers = QuestionBankService.populateAnswersArray();
+
+      vm.selectAnswer = function(id, choice) {
+        QuestionBankService.updateAnswersArray(id,choice);
+      }
     }
 })();
