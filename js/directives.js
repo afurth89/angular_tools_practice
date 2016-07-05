@@ -8,7 +8,7 @@
       return {
         controller: "AssessmentParentController",
         controllerAs: 'vm',
-        templateUrl: '../partials/assessment/layout.html'
+        templateUrl: '../partials/createAssessment/layout.html'
       }
     })
 })();
@@ -25,7 +25,7 @@
         scope: {
           vm: '=vmAttr'
         },
-        templateUrl: '../partials/assessment/questionsListSimple.html'
+        templateUrl: '../partials/createAssessment/questionsListSimple.html'
       }
     })
 })();
@@ -41,7 +41,7 @@
         scope: {
           vm: '=vmAttr'
         },
-        templateUrl: '../partials/assessment/questionsListItemTypes.html'
+        templateUrl: '../partials/createAssessment/questionsListItemTypes.html'
       }
     })
 })();
