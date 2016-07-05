@@ -4,9 +4,9 @@
 (function() {
   angular
     .module('angularPracticeApp')
-    .directive('assessmentParent', function() {
+    .directive('createAssessmentParent', function() {
       return {
-        controller: "AssessmentParentController",
+        controller: "CreateAssessmentParentController",
         controllerAs: 'vm',
         templateUrl: '../partials/createAssessment/layout.html'
       }
@@ -26,22 +26,6 @@
           vm: '=vmAttr'
         },
         templateUrl: '../partials/createAssessment/questionsListSimple.html'
-      }
-    })
-})();
-
-//***************************************************************************
-//ASSESSMENT - QUESTION LIST ITEM TYPE
-//***************************************************************************
-(function() {
-  angular
-    .module("angularPracticeApp")
-    .directive('questionsListItemTypes', function() {
-      return {
-        scope: {
-          vm: '=vmAttr'
-        },
-        templateUrl: '../partials/createAssessment/questionsListItemTypes.html'
       }
     })
 })();

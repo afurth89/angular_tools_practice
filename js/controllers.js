@@ -5,11 +5,11 @@
   
   angular
     .module('angularPracticeApp')
-    .controller('AssessmentParentController', AssessmentParentController)
+    .controller('CreateAssessmentParentController', CreateAssessmentParentController)
 
-    AssessmentParentController.$inject = ['QuestionBankService', '$scope']
+    CreateAssessmentParentController.$inject = ['QuestionBankService', '$scope']
 
-    function AssessmentParentController(QuestionBankService, $scope) {
+    function CreateAssessmentParentController(QuestionBankService, $scope) {
       let vm = this;
 
       vm.questions = QuestionBankService.getQuestions();
