@@ -15,17 +15,33 @@
 
 
 //***************************************************************************
-//ASSESSMENT - QUESTION LIST
+//ASSESSMENT - QUESTION LIST SIMPLE
 //***************************************************************************
 (function() {
   angular
     .module("angularPracticeApp")
-    .directive('questionsList', function() {
+    .directive('questionsListSimple', function() {
       return {
         scope: {
           vm: '=vmAttr'
         },
-        templateUrl: '../partials/assessment/questionsList.html'
+        templateUrl: '../partials/assessment/questionsListSimple.html'
+      }
+    })
+})();
+
+//***************************************************************************
+//ASSESSMENT - QUESTION LIST ITEM TYPE
+//***************************************************************************
+(function() {
+  angular
+    .module("angularPracticeApp")
+    .directive('questionsListItemTypes', function() {
+      return {
+        scope: {
+          vm: '=vmAttr'
+        },
+        templateUrl: '../partials/assessment/questionsListItemTypes.html'
       }
     })
 })();

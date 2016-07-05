@@ -1,4 +1,4 @@
-var app = angular.module("angularPracticeApp", ['ngRoute']);
+var app = angular.module("angularPracticeApp", ['ngRoute', 'dndLists']);
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider

@@ -1,0 +1,54 @@
+<h1>[Questions Display Here]</h1>
+
+<!-- WORKING: SINGLE QUESTIONS -->
+<!-- <ul dnd-list="vm.questions[0].qOptions">
+  <li ng-repeat="option in vm.questions[0].qOptions"
+      dnd-draggable="option"
+      dnd-moved="vm.questions[0].qOptions.splice($index, 1)"
+      dnd-effect-allowed="move"
+      dnd-selected="vm.selected = option"
+      ng-class="{'selected': vm.selected === option}"
+  >
+    {{option.text}}
+  </li>
+</ul> -->
+
+<!-- WORKING: NESTED QUESTIONS -->
+<ul dnd-list="vm.questions">
+  <li ng-repeat="questions in vm.questions"
+  >
+    <h4>{{questions.qText}}</h4>
+    <ul dnd-list="questions.qOptions">
+      <li ng-repeat="qChoice in questions.qOptions"
+          dnd-draggable="qChoice"
+          dnd-effect-allowed="move"
+          dnd-moved="questions.qOptions.splice($index, 1)"
+          dnd-selected="vm.selected = qChoice"
+          ng-class="{'selected': vm.selected === qChoice}"
+      >
+        {{qChoice}}
+      </li>
+    </ul> 
+  </li>
+</ul>
+
+
+<!-- NOT WORKING - (b/c outer ng-repeat isn't within <ul> and <li>) -->
+<!-- <div ng-repeat="question in vm.questions">
+  <h3>{{question.qText}}</h3>
+  <div ng-repeat="option in question.qOptions">
+    <ul dnd-list="option">
+      <li ng-repeat="choice in option"
+          dnd-draggable="choice"
+          dnd-moved="option.splice($index, 1)"
+          dnd-effect-allowed="move"
+          dnd-selected="vm.selected = choice"
+          ng-class="{'selected': vm.selected === choice}"
+      >
+        {{choice}}
+      </li>
+    </ul>
+  </div>
+  <p>The correct answer is: {{question.qAnswer}}</p>
+</div>
+ -->
