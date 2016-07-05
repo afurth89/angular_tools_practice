@@ -16,6 +16,11 @@
 <!-- WORKING: NESTED QUESTIONS -->
 <ul dnd-list="vm.questions">
   <li ng-repeat="questions in vm.questions"
+      dnd-draggable="questions"
+      dnd-effect-allowed="move"
+      dnd-moved="vm.questions.splice($index,1)"
+      dnd-selected="vm.selected = questions"
+      ng-class="{'selected': vm.selected = questions}"
   >
     <h4>{{questions.qText}}</h4>
     <ul dnd-list="questions.qOptions">
