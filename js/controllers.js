@@ -49,3 +49,25 @@
       }
     }
 })();
+
+//***************************************************************************
+//VIEW RESULTS - PARENT
+//***************************************************************************
+(function() {
+  
+  angular
+    .module('angularPracticeApp')
+    .controller('ViewResultsParentController', ViewResultsParentController)
+
+    ViewResultsParentController.$inject = ['QuestionBankService', '$scope']
+
+    function ViewResultsParentController(QuestionBankService, $scope) {
+      let vm = this;
+
+      vm.questions = QuestionBankService.getQuestions();
+      vm.answersArray = QuestionBankService.populateAnswersArray();
+      vm.performanceData = QuestionBankService.getUserPerformance();
+
+      
+    }
+})();

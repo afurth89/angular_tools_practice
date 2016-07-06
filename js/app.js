@@ -1,4 +1,4 @@
-var app = angular.module("angularPracticeApp", ['ngRoute', 'dndLists']);
+var app = angular.module("angularPracticeApp", ['ngRoute', 'dndLists', 'nvd3']);
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
@@ -7,6 +7,9 @@ app.config(function($routeProvider, $locationProvider) {
     })
     .when('/takeAssessment', {
       templateUrl: '../templates/takeAssessmentParent.html'
-    });
+    })
+    .when('/viewResults', {
+      templateUrl: '../templates/viewResults.html'
+    })
   $locationProvider.html5Mode(true);
 })

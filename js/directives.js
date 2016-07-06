@@ -60,3 +60,35 @@
       }
     })
 })();
+
+//***************************************************************************
+//VIEW Results - PARENT
+//***************************************************************************
+(function() {
+  angular
+    .module('angularPracticeApp')
+    .directive('viewResultsParent', function() {
+      return {
+        controller: "ViewResultsParentController",
+        controllerAs: 'vm',
+        templateUrl: '../partials/viewResults/layout.html'
+      }
+    })
+})();
+
+//***************************************************************************
+//VIEW Results - Chart
+//***************************************************************************
+(function() {
+  angular
+    .module('angularPracticeApp')
+    .directive('viewResultsChart', function() {
+      return {
+        scope: {
+          vm: '=vmAttr'
+        },
+        templateUrl: '../partials/viewResults/resultsChart.html'
+      }
+    })
+})();
+
