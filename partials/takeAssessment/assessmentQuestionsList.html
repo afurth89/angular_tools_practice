@@ -11,7 +11,8 @@
   <ul>
     <li ng-repeat="choice in question.qOptions"
         >
-      <span ng-click="vm.selectAnswer(question.id, choice)">{{choice}}</span>
+      <span ng-click="vm.selectAnswer(question.id, choice)"
+            ng-class="{chosen: question.userChoice === choice}">{{choice}}</span>
     </li>
   </ul>
 </div>

@@ -42,6 +42,7 @@
 
       vm.selectAnswer = function(id, choice) {
         // Update the questions array
+        QuestionBankService.updateQuestionsArray(id,choice);
           // Create an ng-class to highlight the choice that was selected
         QuestionBankService.updateAnswersArray(id,choice);
         vm.performanceData = QuestionBankService.getUserPerformance();

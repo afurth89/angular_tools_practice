@@ -11,7 +11,8 @@ app.service("QuestionBankService", function() {
         {'c': 'New York'},
         {'d': 'Pennsylvania'}
       ],
-      'qAnswer': 'a'
+      'qAnswer': 'a',
+      'userChoice': null
     }, {
       "id": 2,
       'qText': "Who was the first President of the United States?",
@@ -21,7 +22,8 @@ app.service("QuestionBankService", function() {
         {'c': 'Abraham Lincoln'},
         {'d': 'George Washington'}
       ],
-      'qAnswer': 'd'
+      'qAnswer': 'd',
+      'userChoice': null
     }, {
       "id": 3,
       'qText': "When did the United States declare its independence?",
@@ -31,7 +33,8 @@ app.service("QuestionBankService", function() {
         {'c': 1789},
         {'d': 1812}
       ],
-      'qAnswer': 'b'
+      'qAnswer': 'b',
+      'userChoice': null
     }, {
       "id": 4,
       'qText': "What country did the United States declare its independence from?",
@@ -41,7 +44,8 @@ app.service("QuestionBankService", function() {
         {'c': 'England'},
         {'d': 'Germany'}
       ],
-      'qAnswer': 'c'
+      'qAnswer': 'c',
+      'userChoice': null
     }, {
       "id": 5,
       'qText': "How many colonies did the United States have?",
@@ -51,7 +55,8 @@ app.service("QuestionBankService", function() {
         {'c': 0},
         {'d': 13}
       ],
-      'qAnswer': 'd'
+      'qAnswer': 'd',
+      'userChoice': null
     }
   ];
 
@@ -98,8 +103,11 @@ app.service("QuestionBankService", function() {
     },
     updateQuestionsArray: function(id,choice) {
       // Find the question in array
+      var qIdx = questions.findIndex(q => id === q.id)
       // Set the 'userChoice' property equal to choice
+      questions[qIdx].userChoice = choice
       // Return questions array
+      return questions;
     },
     updateAnswersArray: function(id, choice) {
       var qIdx = answersArray.findIndex(q => id === q.id)
