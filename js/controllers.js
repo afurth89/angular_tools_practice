@@ -37,10 +37,12 @@
       let vm = this;
 
       vm.questions = QuestionBankService.getQuestions();
-      vm.answers = QuestionBankService.populateAnswersArray();
+      vm.answersArray = QuestionBankService.populateAnswersArray();
+      vm.performanceData = QuestionBankService.getUserPerformance();
 
       vm.selectAnswer = function(id, choice) {
         QuestionBankService.updateAnswersArray(id,choice);
+        vm.performanceData = QuestionBankService.getUserPerformance();
       }
     }
 })();

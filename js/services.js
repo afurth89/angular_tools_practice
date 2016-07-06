@@ -6,10 +6,10 @@ app.service("QuestionBankService", function() {
       "id": 1,
       'qText': "What was the first state in the United States?",
       'qOptions': [
-        {'text': 'Delaware'},
-        {'text': 'Maryland'},
-        {'text': 'New York'},
-        {'text': 'Pennsylvania'}
+        {'a': 'Delaware'},
+        {'b': 'Maryland'},
+        {'c': 'New York'},
+        {'d': 'Pennsylvania'}
       ],
       'qAnswer': 'a'
     }, {
@@ -62,8 +62,29 @@ app.service("QuestionBankService", function() {
     qObj.userAnswer = null;
     qObj.correct = false;
     return qObj
-  })
+  });
 
+  function calcCorrectAnswers(arr) {
+    return arr.reduce(function(cur,next) {
+      if (next.correct) { cur++ }
+      return cur
+    }, 0);
+  }
+
+  function calcCorrectPct(correct,total) {
+    return (correct/total)*100
+  }
+
+  // TRACK PERFORMANCE
+    // Function runs on load, and after every user click of a question
+    // Object is created each time function runs
+  function performanceData(array) {
+    var obj = {}
+    obj.totalQs = array.length
+    obj.correctQs = calcCorrectAnswers(array)
+    obj.correctPct = calcCorrectPct(obj.correctQs, obj.totalQs)
+    return obj
+  };
 
   return {
     getQuestions: function() {
@@ -72,12 +93,21 @@ app.service("QuestionBankService", function() {
     populateAnswersArray: function() {
       return answersArray;
     },
+    getUserPerformance: function() {
+      return performanceData(answersArray);
+    },
     updateAnswersArray: function(id, choice) {
       var qIdx = answersArray.findIndex(q => id === q.id)
-      console.log("The index of the clicked question is: ", qIdx)
-      answersArray[qIdx].userAnswer = choice;
+      // Pulls the key from the selected 'qOptions' object (aka answer choice) the user clicked on
+      answersArray[qIdx].userAnswer = Object.keys(choice)[0];
+      // Change question to correct if answers match
+      if (answersArray[qIdx].actualAnswer === answersArray[qIdx].userAnswer) {
+        answersArray[qIdx].correct = true;
+      } else {
+        answersArray[qIdx].correct = false;
+      }
       return answersArray
-    },
+    }
   }
 })
 

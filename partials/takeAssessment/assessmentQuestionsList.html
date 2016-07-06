@@ -1,6 +1,10 @@
 <h1>[List of Assessment Questions]</h1>
 
-{{vm.answers}}
+<p>[Answers Array]</p>
+<li ng-repeat="answerObj in vm.answersArray">{{answerObj}}</li>
+
+<p ng-model="vm.performanceData"># Correct Answers: {{vm.performanceData.correctQs}}</p>
+<p>% Correct: {{vm.performanceData.correctPct}}%</p>
 
 <div ng-repeat="question in vm.questions">
   <h4>Question: <span>{{question.qText}}</span></h4>
