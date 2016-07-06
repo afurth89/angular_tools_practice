@@ -64,6 +64,44 @@
     function ViewResultsParentController(QuestionBankService, $scope) {
       let vm = this;
 
+      // Both 'options' and 'data' must be JSON objects
+      vm.options = {
+          chart: {
+                type: 'pieChart',
+                height: 1000,
+                donut: true,
+                x: function(d){return d.key;},
+                y: function(d){return d.y;},
+                showLabels: true,
+
+                pie: {
+                    startAngle: function(d) { return d.startAngle/2 -Math.PI/2 },
+                    endAngle: function(d) { return d.endAngle/2 -Math.PI/2 }
+                },
+                duration: 500,
+                legend: {
+                    margin: {
+                        top: 100,
+                        right: 175,
+                        bottom: 5,
+                        left: 0
+                    }
+                }
+          }
+      };
+      vm.data = [
+            {
+                key: "Correct",
+                y: 5,
+                color: "green"
+            },
+            {
+                key: "Incorrect",
+                y: 2,
+                color: "red"
+            }
+        ];
+
       vm.questions = QuestionBankService.getQuestions();
       vm.answersArray = QuestionBankService.populateAnswersArray();
       vm.performanceData = QuestionBankService.getUserPerformance();
