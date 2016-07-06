@@ -96,6 +96,11 @@ app.service("QuestionBankService", function() {
     getUserPerformance: function() {
       return performanceData(answersArray);
     },
+    updateQuestionsArray: function(id,choice) {
+      // Find the question in array
+      // Set the 'userChoice' property equal to choice
+      // Return questions array
+    },
     updateAnswersArray: function(id, choice) {
       var qIdx = answersArray.findIndex(q => id === q.id)
       // Pulls the key from the selected 'qOptions' object (aka answer choice) the user clicked on
