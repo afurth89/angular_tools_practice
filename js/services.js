@@ -136,6 +136,23 @@ app.service("QuestionBankService", function() {
     },
     getTestData: function(){
       return testData;
+    }, 
+    convertAndRetrieveChartData: function() {
+      var userPerformance = performanceData(answersArray)
+      debugger
+      var chartArray = [
+        {
+          key: "Correct",
+          y: userPerformance.correctQs,
+          color: "green"
+        },
+        {
+          key: "Incorrect",
+          y: userPerformance.totalQs - userPerformance.correctQs,
+          color: "red"
+        }
+      ]
+      return chartArray
     }
   }
 })

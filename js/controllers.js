@@ -40,12 +40,40 @@
       vm.answersArray = QuestionBankService.populateAnswersArray();
       vm.performanceData = QuestionBankService.getUserPerformance();
 
+      // Both 'options' and 'data' must be JSON objects
+      vm.options = {
+          chart: {
+                type: 'pieChart',
+                height: 500,
+                donut: true,
+                x: function(d){return d.key;},
+                y: function(d){return d.y;},
+                showLabels: true,
+
+                pie: {
+                    startAngle: function(d) { return d.startAngle/2 -Math.PI/2 },
+                    endAngle: function(d) { return d.endAngle/2 -Math.PI/2 }
+                },
+                duration: 500,
+                legend: {
+                    margin: {
+                        top: 100,
+                        right: 175,
+                        bottom: 5,
+                        left: 0
+                    }
+                }
+          }
+      };
+
+
       vm.selectAnswer = function(id, choice) {
         // Update the questions array
         QuestionBankService.updateQuestionsArray(id,choice);
           // Create an ng-class to highlight the choice that was selected
         QuestionBankService.updateAnswersArray(id,choice);
         vm.performanceData = QuestionBankService.getUserPerformance();
+        vm.data = QuestionBankService.convertAndRetrieveChartData();
       }
     }
 })();
@@ -68,7 +96,7 @@
       vm.options = {
           chart: {
                 type: 'pieChart',
-                height: 1000,
+                height: 500,
                 donut: true,
                 x: function(d){return d.key;},
                 y: function(d){return d.y;},
@@ -90,11 +118,6 @@
           }
       };
       vm.data = QuestionBankService.getTestData();
-
-      vm.questions = QuestionBankService.getQuestions();
-      vm.answersArray = QuestionBankService.populateAnswersArray();
-      vm.performanceData = QuestionBankService.getUserPerformance();
-
       
     }
 })();
