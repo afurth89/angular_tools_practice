@@ -91,6 +91,19 @@ app.service("QuestionBankService", function() {
     return obj
   };
 
+  const testData = [
+              {
+                  key: "Correct",
+                  y: 5,
+                  color: "green"
+              },
+              {
+                  key: "Incorrect",
+                  y: 2,
+                  color: "red"
+              }
+          ];
+
   return {
     getQuestions: function() {
       return questions;
@@ -120,6 +133,9 @@ app.service("QuestionBankService", function() {
         answersArray[qIdx].correct = false;
       }
       return answersArray
+    },
+    getTestData: function(){
+      return testData;
     }
   }
 })

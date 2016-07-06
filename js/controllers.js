@@ -89,18 +89,7 @@
                 }
           }
       };
-      vm.data = [
-            {
-                key: "Correct",
-                y: 5,
-                color: "green"
-            },
-            {
-                key: "Incorrect",
-                y: 2,
-                color: "red"
-            }
-        ];
+      vm.data = QuestionBankService.getTestData();
 
       vm.questions = QuestionBankService.getQuestions();
       vm.answersArray = QuestionBankService.populateAnswersArray();
